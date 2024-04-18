@@ -1,0 +1,314 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+/*Fuentes*/
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+}
+/*Fin Fuentes*/
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-template-rows: auto auto auto;
+    background-image: url(img/neon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Header*/
+
+#presentation {
+    grid-column: 1 / span2;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: 900;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+#presentation p {
+    text-align: center;
+}
+
+#nav-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    
+}
+
+#nav-contact p {
+    margin-bottom: 10px;
+    text-decoration: 3px solid underline;
+    margin-right: 15%;
+}
+
+ul li {
+    text-decoration: none;
+    display: table-cell;
+    border-collapse: collapse;
+    padding: 5px 20px;
+    border: 2px solid transparent;
+}
+
+ul li:hover {
+    border: 2px solid white;
+}
+
+.nav-item, .nav-p {
+    color: white;
+    text-decoration: none;
+}
+
+
+.nav-item img  {
+    width: 1.8rem;
+    filter: invert(1);
+    padding-right: 10px;
+}
+
+
+button {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+}
+
+button img {
+    width: 1.3rem;
+    filter: invert(1);
+    margin-left: 10px;
+}
+
+
+/*Abaout*/
+
+#aboutme {
+    grid-row: 2 / span2;
+    background-color: #FFFFFF;
+    margin: 0 15px;
+    text-align: center;
+    padding: 5px 20px;
+    color: #000000;
+    border-radius: 25px;
+    font-size: 1.3rem;
+}
+
+.titel-about  {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    background-color: #6E6AA8;
+    border-radius: 10px;
+    color: white;
+    padding: 3px;
+}
+
+/* Languages / Tools */
+#list-skills {
+    text-align: left;
+}
+
+#list-skills dt {
+    font-weight: 600;
+}
+
+#list-skills dd {
+    padding-left: 6%;
+}
+
+#list-skills dd::before {
+    content: "- ";
+}
+
+/*Projects Container*/
+
+main {
+    grid-column: 2 / span2;
+    grid-row: 2 / span2;
+    background-color: white ;
+    margin: 0 15px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+main p {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 15px auto;
+    max-width: 700px;
+    background-color: #6E6AA8;
+    border-radius: 15px;
+    color: white;
+    padding: 3px 0;
+}
+
+#projects {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+/*Cards*/
+
+.project {
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 450px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 11px 3px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project:hover {
+    animation: scaleCard 0.2s ease-in-out forwards;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+.img-project {
+    max-height: 210px;
+    background-color: #000000;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.container-link {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container-link img {
+    max-height: 25px;
+    margin-right: 10px;
+}
+
+.container-link a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+@keyframes scaleCard {
+    100% {
+        transform: scale(1.01);
+    }
+}
+
+/* Responsive */
+
+/* To Big */
+
+@media screen and (min-width:900px) and (max-width:1330px) {
+    body {
+        grid-template-columns: 35% 50%;
+    }
+    
+}
+
+/* Tablet / Small Portatil */
+
+@media screen and (max-width:899px) {
+    /* GRID */    
+    html {
+        background-image: url(img/neon.jpg);
+        background-size: cover;
+    }
+
+    body {
+        grid-template-columns: 100%;
+        background-image: none;
+    }
+
+    #presentation {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #aboutme {
+        grid-column: 1;
+        grid-row: 2;
+        margin-bottom: 20px;
+    }
+
+    main {
+        grid-column: 1;
+        grid-row: 3;
+
+    }
+
+    /* Card */ 
+
+    .project {
+        max-width: 350px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin: 15px 0;
+    }
+    
+}
+
+@media screen and (max-width:790px) {
+    /* Header */
+    #presentation {
+        font-size: 1.5rem;
+    }
+    
+    #presentation p {
+        font-size: 1.2rem;
+    }
+
+    #nav-contact {
+        font-size: 1rem;
+    }
+
+    .nav-item img  {
+        width: 1.5rem;
+    }
+    
+    button img {
+        width: 1.3rem;
+    }
+
+    /* Aboutme */
+
+    #aboutme {
+        font-size: 1.1rem;
+    }
+
+
+    
+    /* Card */
+    .project {
+        max-width: 450px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin: 15px 0;
+    }
+}
