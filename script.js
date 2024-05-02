@@ -21,7 +21,15 @@ const projectsMakes = [
   { name: 'Snake Game',
   imagen: 'img/Snake-Game.jpg',
   code: 'https://github.com/j-gabriel-ortiz/Snake-Game-HTML-CSS-JavaScript',
-  repo: 'https://j-gabriel-ortiz.github.io/Snake-Game-HTML-CSS-JavaScript/' }
+  repo: 'https://j-gabriel-ortiz.github.io/Snake-Game-HTML-CSS-JavaScript/' },
+  { name: 'Palindrome',
+  imagen: 'img/Palindrome.jpg',
+  code: 'https://github.com/j-gabriel-ortiz/Palindromo-HTML-CSS-JavaScript',
+  repo: 'https://j-gabriel-ortiz.github.io/Palindromo-HTML-CSS-JavaScript/' },
+  { name: 'Roman Numeral Converter',
+  imagen: 'img/Roman-numeral-converter.jpg',
+  code: 'https://github.com/j-gabriel-ortiz/Roman-Numeral-Converter-HTML-CSS-JavaScript-Public',
+  repo: 'https://j-gabriel-ortiz.github.io/Roman-Numeral-Converter-HTML-CSS-JavaScript-Public/' }
 ];
 
 
