@@ -58,24 +58,70 @@ const projectsMakes = [
   },
 ];
 
-function showProjects() {
-  projectsMakes.forEach((project) => {
-    let divProject = document.createElement("div");
-    divProject.classList.add("project");
-    divProject.innerHTML = `
-            <h3>${project.name}</h3>
-            <img class='img-project' src='${project.imagen}' alt='${project.name}'>
-            <div class='container-link'>
-                <a href='${project.repo}' target="_blank"><img src='img/globe-solid.svg' alt='World icon'>Project</a>
-                <a href='${project.code}' target="_blank"><img src='img/github.svg' alt='Git Hub icon'>Code</a>
-            </div>
-        `;
-    sectionProjects.append(divProject);
-  });
+function createCardsElement(project) {
+  //Contenedor
+  let divProject = document.createElement("div");
+  divProject.classList.add("project");
+
+  // Titulo
+  let titleProject = document.createElement("h3");
+  titleProject.textContent = project.name;
+
+  // Imagen
+  let imgProject = document.createElement("img");
+  imgProject.src = project.imagen;
+  imgProject.alt = "Picture of " + project.name;
+  imgProject.classList.add("img-project");
+
+  divProject.appendChild(titleProject);
+  divProject.appendChild(imgProject);
+  divProject.appendChild(createCardLinks(project));
+
+  return divProject;
 }
+
+// Funcion con parametros para crear links
+function createLink(href, imgSrc, imgAlt, text) {
+  const link = document.createElement("a");
+  link.target = "_blank";
+  link.href = href;
+
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.alt = imgAlt;
+
+  link.appendChild(img);
+  link.appendChild(document.createTextNode(text));
+
+  return link;
+}
+
+// Funcion para crear el contenedor de links
+function createCardLinks(project) {
+  const containerLinks = document.createElement("div");
+  containerLinks.classList.add("container-link");
+
+  const linkCode = createLink(project.repo, "img/globe-solid.svg", "Globe", "Project");
+  const linkGithub = createLink(project.code, "img/github.svg", "Github", "Code");
+
+  containerLinks.appendChild(linkCode);
+  containerLinks.appendChild(linkGithub);
+
+  return containerLinks;
+}
+
+//Funcion para renderizar proyectos
+function showProjects(allProjects) {
+  const lengthProjects = allProjects.length;
+  for (let i = 0; i < lengthProjects; i++) {
+    let item = createCardsElement(allProjects[i]);
+    sectionProjects.appendChild(item);
+  }
+}
+
+showProjects(projectsMakes);
 
 copyBtn.addEventListener("click", () =>
   navigator.clipboard.writeText("ojgabriel.88@gmail.com")
 );
 
-showProjects();
